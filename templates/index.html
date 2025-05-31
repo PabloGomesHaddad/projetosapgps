@@ -1,0 +1,17 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestão de SAP</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Gestão de SAP</h1>
+    <ul>
+        <li><a href="{{ url_for('search') }}">Buscar Dados</a></li>
+        <li><a href="{{ url_for('request_change') }}">Solicitar Troca de Endereço</a></li>
+        <li><a href="{{ url_for('admin') }}">Área do Administrador</a></li>
+    </ul>
+</body>
+</html>
