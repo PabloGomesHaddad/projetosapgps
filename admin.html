@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Administração</title>
+</head>
+<body>
+    <h1>Solicitações Pendentes</h1>
+    <table border="1">
+        <tr><th>ID</th><th>SAP</th><th>Novo Endereço</th><th>Ações</th></tr>
+        {% for req in requests %}
+        <tr>
+            <td>{{ req['id'] }}</td>
+            <td>{{ req['sap'] }}</td>
+            <td>{{ req['new_address'] }}</td>
+            <td>
+                <a href="{{ url_for('approve', id=req['id']) }}">Aprovar</a> |
+                <a href="{{ url_for('reject', id=req['id']) }}">Rejeitar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br><a href="{{ url_for('index') }}">Voltar</a>
+</body>
+</html>

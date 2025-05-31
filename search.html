@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Buscar SAP</title>
+</head>
+<body>
+    <h1>Buscar SAP</h1>
+    <form method="post">
+        <input type="text" name="sap" placeholder="Digite o SAP" required>
+        <button type="submit">Buscar</button>
+    </form>
+    <h2>Resultados:</h2>
+    {% if results %}
+        <table border="1">
+            <tr>
+                {% for key in results[0].keys() %}
+                    <th>{{ key }}</th>
+                {% endfor %}
+            </tr>
+            {% for row in results %}
+                <tr>
+                {% for item in row %}
+                    <td>{{ item }}</td>
+                {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        Nenhum resultado.
+    {% endif %}
+    <br><a href="{{ url_for('index') }}">Voltar</a>
+</body>
+</html>
